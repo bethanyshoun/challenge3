@@ -1,8 +1,16 @@
 // Assignment code here
+var passwordLength = function () {}
+
 var writePassword = function () {
   //function to determine password length
-  var passwordLength = window.prompt("How many characters should your password have? Choose a number from 8 to 128.");
-  
+  var passwordLength = window.prompt("How many characters should your password have? Choose a number from 8 to 128."); 
+
+  //validate prompt answer- no value entered
+  if (passwordLength === "" || passwordLength === null) {
+    window.alert("You must provide a number from 8 to 128.")
+    return writePassword();
+  }
+
 }
 
 // Get references to the #generate element
@@ -19,6 +27,9 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+// Call Functon
+writePassword ();
 
 //If click on the button to generate a password
 
