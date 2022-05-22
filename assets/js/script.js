@@ -1,9 +1,15 @@
 // Assignment code here
-var writePassword = function () {
-  //function to determine password length
-  var passwordLength = window.prompt("How many characters should your password have? Choose a number from 8 to 128."); 
-    
+var writePassword;
+var passwordLength = window.prompt("How many characters should your password have? Choose a number from 8 to 128.");
+var selectLowercase = window.confirm ("Will your password have lowercase characters? Choose 'ok' for yes or 'cancel' for no.");
+var selectUppercase = window.confirm ("Will your password have uppcarcase characters? Choose 'ok' for yes or 'cancel' for no.");
+var selectNumbers = window.confirm ("Will your password have numbers? Choose 'ok' for yes or 'cancel' for no.");
+var selectSpecial = window.confirm ("Will your password have special characters? Choose 'ok' for yes or 'cancel' for no.");
 
+/* writePassword = function () {
+  //function to determine password length
+  passwordLength = window.prompt("How many characters should your password have? Choose a number from 8 to 128."); 
+    
   //validate prompt answer- no value entered
   if (passwordLength === "" || passwordLength === null) {
     window.alert("You must provide a number from 8 to 128.")
@@ -21,12 +27,14 @@ var writePassword = function () {
     return writePassword();
   }
 
-  // if true, go to next prompt
+  // if true, save to localStorage and go to the next prompt
   if (passwordLength >= 8 && passwordLength <= 128) {
     alert("You chose " + passwordLength + " characters.");
-    localStorage.setItem("length", passwordLength);
+    console.log(passwordLength);
+    var passwordLength = true; //*
+    //localStorage.setItem("length", passwordLength);
   }
-}
+} */
 
 
 // Get references to the #generate element
@@ -47,28 +55,4 @@ generateBtn.addEventListener("click", writePassword);
 // Call Functon
 writePassword ();
 
-//If click on the button to generate a password
 
-//Then prompoted for password critera
-
-//If prompted for password criteria
-
-//Then slect which criteria to include
-
-//If prompted for length of password
-
-//Then choose a length from 8-128 characters
-
-//IF asked for character types to include
-
-//Then choose from any/some/all of lowercase, uppercase, numeric and/or special characters
-
-//If I answer each prompt
-
-//Then my input should be validated and at least one character type selelcted
-
-//If all prompts are answered
-
-//Then a password is generated to match selected criteria
-
-//Password is displayed in an alert or written on the page
