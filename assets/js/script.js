@@ -24,6 +24,7 @@ var writePassword = function () {
   // if true, go to next prompt
   if (passwordLength >= 8 && passwordLength <= 128) {
     alert("You chose " + passwordLength + " characters.");
+    localStorage.setItem("length", passwordLength);
   }
 }
 
