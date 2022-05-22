@@ -2,6 +2,7 @@
 var writePassword = function () {
   //function to determine password length
   var passwordLength = window.prompt("How many characters should your password have? Choose a number from 8 to 128."); 
+    
 
   //validate prompt answer- no value entered
   if (passwordLength === "" || passwordLength === null) {
@@ -19,7 +20,13 @@ var writePassword = function () {
     window.alert("Too long. Your number must be less than 128.")
     return writePassword();
   }
+
+  // if true, go to next prompt
+  if (passwordLength >= 8 && passwordLength <= 128) {
+    alert("You chose " + passwordLength + " characters.");
+  }
 }
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
