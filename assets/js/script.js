@@ -33,13 +33,13 @@ var generatePassword = function () {
   //confirm uppercase letters
   var selectUppercase = window.confirm ("Will your password have uppcarcase characters? Choose 'ok' for yes or 'cancel' for no.");
       if (selectUppercase) {
-        setCritera = setCriteria + uppercase
+        setCriteria = setCriteria + uppercase
       }
   
   //confirm numbers
   var selectNumbers = window.confirm ("Will your password have numbers? Choose 'ok' for yes or 'cancel' for no.");
       if (selectNumbers) {
-        setCriteria = setCritera + numbers
+        setCriteria = setCriteria + numbers
       }
 
   //confirm special characters
@@ -47,40 +47,27 @@ var generatePassword = function () {
       if (selectSpecial) {
         setCriteria = setCriteria + special
       }
+
+      //if no criteria selected
+      if (setCriteria === "") {
+        window.alert("You must choose one or more set of criteria.")
+        return generatePassword();
+      }
+  //begin generating password
+  var password = ""
+        while (password.length < passwordLength) {
+          var randomIndex = Math.floor(Math.random() * setCriteria.length);
+          var randomCharacters = setCriteria.charAt(randomIndex);
+          password = password + randomCharacters
+        }
+      return password
 }
-
-generatePassword();
-
-
-
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-  
-// Write password to the #password input
-function writePassword() {
+  // Add event listener to generate button
+generateBtn.addEventListener("click", function() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword); 
-
-/*
-// Call Functon
-writePassword ();
-
-
-// Assignment code here
-var writePassword;
-var passwordLength = window.prompt("How many characters should your password have? Choose a number from 8 to 128.");
-var selectLowercase = window.confirm ("Will your password have lowercase characters? Choose 'ok' for yes or 'cancel' for no.");
-var selectUppercase = window.confirm ("Will your password have uppcarcase characters? Choose 'ok' for yes or 'cancel' for no.");
-var selectNumbers = window.confirm ("Will your password have numbers? Choose 'ok' for yes or 'cancel' for no.");
-var selectSpecial = window.confirm ("Will your password have special characters? Choose 'ok' for yes or 'cancel' for no.");
-
-*/
+})
