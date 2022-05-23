@@ -25,27 +25,42 @@ var generatePassword = function () {
   var setCriteria = ""    
 
   //confirm lowercase letters
-  var selectLowercase = window.confirm ("Will your password have lowercase characters? Choose 'ok' for yes or 'cancel' for no.");
-      if (selectLowercase) {
+  var selectLowercase = window.confirm ("Will your password have lowercase letters? Choose 'ok' for yes or 'cancel' for no.");
+      if (selectLowercase)  {
         setCriteria = setCriteria + lowercase
+        window.alert("Your password will have lowercase letters.");
+      }
+      else { ("" === selectLowercase) 
+        window.alert("Your password will not have lowercase letters.");
       }
   
   //confirm uppercase letters
-  var selectUppercase = window.confirm ("Will your password have uppcarcase characters? Choose 'ok' for yes or 'cancel' for no.");
+  var selectUppercase = window.confirm ("Will your password have uppcarcase letters? Choose 'ok' for yes or 'cancel' for no.");
       if (selectUppercase) {
         setCriteria = setCriteria + uppercase
+        window.alert("Your password will have uppercase letters.");
       }
-  
+      else { ("" === selectUppercase) 
+        window.confirm("Your password will not have uppercase letters.");
+      }
   //confirm numbers
   var selectNumbers = window.confirm ("Will your password have numbers? Choose 'ok' for yes or 'cancel' for no.");
       if (selectNumbers) {
         setCriteria = setCriteria + numbers
+        window.alert("Your password will have numbers.");
+      }
+      else { ("" === selectNumbers) 
+        window.confirm("Your password will not have numbers.");
       }
 
   //confirm special characters
   var selectSpecial = window.confirm ("Will your password have special characters? Choose 'ok' for yes or 'cancel' for no.");
       if (selectSpecial) {
         setCriteria = setCriteria + special
+        window.alert("Your password will have special characters.");
+      }
+      else { ("" === selectSpecial) 
+        window.confirm("Your password will not have characters.");
       }
 
       //if no criteria selected
