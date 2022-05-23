@@ -1,53 +1,58 @@
+//Assignment code here
 var generatePassword = function () {
+  //set variables for setCritera character types
+  var lowercase = "abcdefghijklmnopqrstuvwxyz"; 
+	var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	var numbers = "0123456789";
+	var special = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+
+  // set passwordLength
 	var passwordLength = window.prompt("How many characters should your password have? Choose a number from 8 to 128.");
   	var minLength = parseInt('8');
   	var maxLength = parseInt('128');
     passwordLength = parseInt (passwordLength);
   	if (passwordLength < minLength || passwordLength > maxLength) {
   		window.alert("You must provide a number from 8 to 128.");
+      return generatePassword();
    	} else if (Number.isNaN(passwordLength)) {
     		window.alert ("That is not a number.")
         return generatePassword();
     } else { (passwordLength >= minLength && passwordLength <= maxLength) 
-      	alert("You chose " + passwordLength + " characters."); }
-    
+      	alert("You chose " + passwordLength + " characters."); 
+      }
+
+  //variable for criteria select setCriteria
+  var setCriteria = ""    
+
+  //confirm lowercase letters
+  var selectLowercase = window.confirm ("Will your password have lowercase characters? Choose 'ok' for yes or 'cancel' for no.");
+      if (selectLowercase) {
+        setCriteria = setCriteria + lowercase
+      }
+  
+  //confirm uppercase letters
+  var selectUppercase = window.confirm ("Will your password have uppcarcase characters? Choose 'ok' for yes or 'cancel' for no.");
+      if (selectUppercase) {
+        setCritera = setCriteria + uppercase
+      }
+  
+  //confirm numbers
+  var selectNumbers = window.confirm ("Will your password have numbers? Choose 'ok' for yes or 'cancel' for no.");
+      if (selectNumbers) {
+        setCriteria = setCritera + numbers
+      }
+
+  //confirm special characters
+  var selectSpecial = window.confirm ("Will your password have special characters? Choose 'ok' for yes or 'cancel' for no.");
+      if (selectSpecial) {
+        setCriteria = setCriteria + special
+      }
 }
+
 generatePassword();
 
 
-/*writePassword = function () {
-  //function to determine password length
-  var passwordLength = window.prompt("How many characters should your password have? Choose a number from 8 to 128."); {
-    
-    //validate prompt answer- no value entered
-    if (passwordLength === "" || passwordLength === null) {
-      window.alert("You must provide a number from 8 to 128.")
-      return writePassword();
-    } 
-    // validate prompt answer - too few characters
-    if (passwordLength < 8) {
-      window.alert("Too short. Choose at least 8 characters.")
-      return writePassword();
-    }
-  
-    //validate prompt answer- too many characters
-    if (passwordLength > 128) {
-      window.alert("Too long. Your number must be less than 128.")
-      return writePassword();
-    }
 
-    // if true, save to localStorage and go to the next prompt
-    if (passwordLength >= 8 && passwordLength <= 128) {
-      alert("You chose " + passwordLength + " characters.");
-      console.log(passwordLength);
-      var passwordLength = true; 
-      //localStorage.setItem("length", passwordLength);
-    }
-
-   
-  }
-
-} */
 
 
 // Get references to the #generate element
